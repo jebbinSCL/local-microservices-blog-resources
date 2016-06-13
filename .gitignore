@@ -247,4 +247,4 @@ Settings.FSharpLint
 # Ubuntu trash folder
 .Trash-*
 
-./Microservices/build/
+Microservices/build/
