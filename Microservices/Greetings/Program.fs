@@ -16,9 +16,9 @@ let main _ =
         match result.StatusCode with 
         | HttpStatusCode.OK -> 
             let data = result.Content.ReadAsStringAsync().Result
-            let output = sprintf "Received Message From Database: %s at %A" data DateTime.Now
+            let output = sprintf "Received Message From Database: %s at %A\n" data DateTime.Now
             output
-        | _ -> failwith <| sprintf "Db Request failed with status code: %A; Reason: %A" result.StatusCode result.ReasonPhrase
+        | _ -> failwith <| sprintf "Db Request failed with status code: %A; Reason: %A\n" result.StatusCode result.ReasonPhrase
 
     let handler =  request (fun r -> OK (getDbResponse()))
     let app : WebPart = 
