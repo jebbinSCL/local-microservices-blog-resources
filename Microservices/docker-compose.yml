@@ -9,6 +9,8 @@ services:
     image: greetings-service
     ports:
       - "8081:8080"
+    volumes:
+        - $PWD/build/greetings.networking.config:/service/networking.config
     restart: unless-stopped
     depends_on:
       - greetings-db
@@ -16,6 +18,8 @@ services:
     image: gateway
     ports:
       - "8082:8080"
+    volumes:
+        - $PWD/build/gateway.networking.config:/service/networking.config
     restart: unless-stopped
     depends_on:
       - greetings-service

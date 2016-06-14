@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-sh ./setupBuildTools.sh
-sh ./buildServices.sh
-sh ./buildImages.sh
-sh ./up.sh
+sh -eu ./setupBuildTools.sh
+sh -eu ./buildServices.sh
+sh -eu ./buildImages.sh
+sh -eu ./up.sh
