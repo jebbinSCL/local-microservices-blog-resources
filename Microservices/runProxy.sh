@@ -10,6 +10,6 @@ SERVICE_PORT=$($DIR/servicePortMapping.sh $SERVICE_ID)
 echo "Enter VM host ip (Windows) on host only network (use ipconfig on windows):"
 read HOST_IP
 
-sed "s/{PROXY_IP}/$HOST_IP/;s/{PORT}/$SERVICE_PORT/" $DIR/proxy.default.conf > $BUILD_DIR/$SERVICE_ID.default.conf
+sed "s/{PROXY_IP}/$HOST_IP/;s/{PORT}/$SERVICE_PORT/" $DIR/config/proxy.default.conf > $BUILD_DIR/$SERVICE_ID.default.conf
 
 docker run -d --name ${SERVICE_ID}_proxy -v $BUILD_DIR/$SERVICE_ID.default.conf:/etc/nginx/conf.d/default.conf -p $SERVICE_PORT:$SERVICE_PORT nginx
