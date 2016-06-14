@@ -6,9 +6,14 @@ open System
 open System.Net
 open System.Net.Http
 
+open Config
+
+let serviceIp = getConfigValue "ServiceIp"
+let servicePort = getIntConfig "ServicePort"
+let dbUrl = getUriConfig "DbUrl"
+
 [<EntryPoint>]
 let main _ = 
-    let dbUrl = "http://greetings-db:8080"
     let getDbResponse () = 
         use client = new HttpClient()
 
@@ -25,6 +30,6 @@ let main _ =
         choose 
             [ GET >=> choose [ path "/" >=> handler]]
 
-    let config = { defaultConfig with bindings = [ HttpBinding.mkSimple HTTP "0.0.0.0" 8080 ] }
+    let config = { defaultConfig with bindings = [ HttpBinding.mkSimple HTTP serviceIp servicePort ] }
     startWebServer config app
     0
