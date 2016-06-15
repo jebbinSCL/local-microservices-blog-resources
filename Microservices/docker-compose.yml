@@ -1,11 +1,11 @@
 version: "2"
 services:
-  greetings-db:
+  db:
     image: greetings-db
     ports:
       - "8080:8080"
     restart: unless-stopped
-  greetings-service:
+  greetings:
     image: greetings-service
     ports:
       - "8081:8080"
@@ -13,7 +13,7 @@ services:
         - $PWD/build/greetings.networking.config:/service/networking.config
     restart: unless-stopped
     depends_on:
-      - greetings-db
+      - db
   gateway:
     image: gateway
     ports:
@@ -22,4 +22,4 @@ services:
         - $PWD/build/gateway.networking.config:/service/networking.config
     restart: unless-stopped
     depends_on:
-      - greetings-service
+      - greetings

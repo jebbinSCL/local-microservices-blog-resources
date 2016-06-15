@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 echo "Preparing service configurations"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILD_DIR="$DIR/build"

@@ -1,3 +1,3 @@
 #!/bin/sh -eu
-sh -eu ./buildConfigs.sh
-docker-compose up -d
+bash -eu ./buildConfigs.sh
+docker-compose -p app up -d
