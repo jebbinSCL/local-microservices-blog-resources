@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILD_DIR="$DIR/build"
 CONFIG_DIR="$DIR/config"
 
-echo "Enter ip for the docker host (The virtualBox VM this is probably an address with the format 10.0.*.*):"
+echo "Enter ip for the docker host (In the vagrant box, this is most likely 192.168.56.103):"
 read DOCKER_HOST_IP
 
 mkdir -p $BUILD_DIR

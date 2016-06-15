@@ -7,7 +7,7 @@ echo "Enter service id (See servicePortMapping.sh for options):"
 read SERVICE_ID
 SERVICE_PORT=$($DIR/servicePortMapping.sh $SERVICE_ID)
 
-echo "Enter VM host ip (Windows) on host only network (use ipconfig on windows):"
+echo "Enter VM host ip (Windows) on host only network (use ipconfig on windows). This is most likely 192.168.56.1:"
 read HOST_IP
 
 sed "s/{PROXY_IP}/$HOST_IP/;s/{PORT}/$SERVICE_PORT/" $DIR/config/proxy.default.conf > $BUILD_DIR/$SERVICE_ID.default.conf
